@@ -1,0 +1,58 @@
+CUDNN:
+  BENCHMARK: true
+  DETERMINISTIC: false
+  ENABLED: true
+GPUS: (0,)  # Adjust based on your available GPUs
+OUTPUT_DIR: 'output'
+LOG_DIR: 'log'
+WORKERS: 4
+PRINT_FREQ: 100
+
+DATASET:
+  DATASET: custom  # Change this to reflect your custom dataset
+  ROOT: 'YOLODataset'  # Update this path
+  TEST_SET: 'images/test'  # Adjust if needed
+  TRAIN_SET: 'images/train'  # Adjust if needed
+  NUM_CLASSES: 2  # Change to 2 for fire and smoke
+
+MODEL:
+  NAME: seg_hrnet
+  PRETRAINED: ''  # Remove or update path if you have a pretrained model
+  EXTRA:
+    FINAL_CONV_KERNEL: 1
+    # ... (keep the rest of the MODEL section as is)
+
+LOSS:
+  USE_OHEM: false
+  OHEMTHRES: 0.9
+  OHEMKEEP: 131072
+
+TRAIN:
+  IMAGE_SIZE:
+  - 256  # Adjust based on your input size
+  - 256
+  BASE_SIZE: 256  # Adjust based on your input size
+  BATCH_SIZE_PER_GPU: 16  # Adjust based on your GPU memory
+  SHUFFLE: true
+  BEGIN_EPOCH: 0
+  END_EPOCH: 100  # Adjust based on your needs
+  RESUME: false  # Set to true if you want to resume training
+  OPTIMIZER: adam  # Changed to adam as per your script
+  LR: 0.0001  # Adjusted to match your LEARNING_RATE
+  WD: 0.0005
+  MOMENTUM: 0.9
+  NESTEROV: false
+  FLIP: true
+  MULTI_SCALE: true
+  DOWNSAMPLERATE: 1
+  IGNORE_LABEL: 255
+  SCALE_FACTOR: 16
+
+TEST:
+  IMAGE_SIZE:
+  - 256  # Adjust based on your input size
+  - 256
+  BASE_SIZE: 256  # Adjust based on your input size
+  BATCH_SIZE_PER_GPU: 16  # Adjust based on your GPU memory
+  FLIP_TEST: false
+  MULTI_SCALE: false
