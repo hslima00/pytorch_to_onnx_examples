@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "Lima"
+    given-names: "Hugo"
+    orcid: "https://orcid.org/0009-0008-0361-8160"  # Replace with your ORCID if available
+title: "PyTorch to ONNX Examples"
+version: 1.0.0
+date-released: 2024-10-20
+url: "https://github.com/hslima00/pytorch_to_onnx_examples"
+repository-code: "https://github.com/hslima00/pytorch_to_onnx_examples"
+license: MIT  # Replace with the actual license you're using
+type: software
+description: "Examples created while training and exporting several semantic segmentation models to ONNX format. These models were trained using the FIREFRONT Unified Dataset and they act as baseline models to the FIREFRONT Fire and Smoke benchmark."
+keywords:
+  - pytorch
+  - onnx
+  - semantic-segmentation
+  - fire-detection
+  - smoke-detection
+  - deep-learning
